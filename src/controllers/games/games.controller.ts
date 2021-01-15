@@ -4,7 +4,7 @@ import IControllerBase from "interfaces/IControllerBase.interface";
 import { Chess, Move } from "chessops";
 
 class GamesController implements IControllerBase {
-  public path = "/games";
+  public path = "/chessserver/games";
   public router = express.Router();
   private games: Map<number, Chess> = new Map<number, Chess>();
 
