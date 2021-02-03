@@ -1,5 +1,20 @@
 import * as express from 'express'
 import { Application } from 'express'
+import * as cors from 'cors';
+
+const options: cors.CorsOptions = {
+  allowedHeaders: [
+    'Origin',
+    'X-Requested-With',
+    'Content-Type',
+    'Accept',
+    'X-Access-Token',
+  ],
+  credentials: true,
+  methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+  origin: '*',
+  preflightContinue: false,
+};
 
 class App {
     public app: Application
@@ -8,6 +23,9 @@ class App {
     constructor(appInit: { port: number; middleWares: any; controllers: any; }) {
         this.app = express()
         this.port = appInit.port
+
+        this.app.use(cors(options))
+        this.app.options('*', cors())
 
         this.middlewares(appInit.middleWares)
         this.routes(appInit.controllers)
