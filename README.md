@@ -1,9 +1,14 @@
-# Express TypeScript Test
+# ARChess Chessserver
 
-To run in development mode
+Compiled in Docker-Repository:
+```
+https://hub.docker.com/repository/docker/otmi100/chessserver
+```
+
+To start
 
 ```bash
-npm run dev
+npm run start
 ```
 
 To build
